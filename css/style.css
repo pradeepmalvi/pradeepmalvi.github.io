@@ -1,4 +1,20 @@
 @charset "utf-8";
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.bg-primary {
+  background-color: #05668d !important ;
+}
+.bg-success {
+  background-color: #028090 !important;
+}
+.bg-warning {
+  background-color: #00a896 !important;
+}
+.bg-danger {
+  background-color: #02c39a !important;
+}
 
 #header img {
   width: 100%;
