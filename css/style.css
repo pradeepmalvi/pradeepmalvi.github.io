@@ -127,10 +127,11 @@ text-black {
     opacity: 1;
   }
 }
-
+.skill-card{
+  transition: 0.2s all ease-in;
+}
 .skill-card:hover .skill-image {
   transform: translateY(-5px);
-  transition: 0.3s all ease-in;
 }
 
 .fade-in-bottom {
