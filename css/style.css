@@ -132,6 +132,7 @@ text-black {
 }
 .skill-card:hover .skill-image {
   transform: translateY(-5px);
+  transition: 0.2s all ease-in;
 }
 
 .fade-in-bottom {
