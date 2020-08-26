@@ -130,6 +130,9 @@ text-black {
 .skill-card{
   transition: 0.2s all ease-in;
 }
+.skill-image {
+  transition: 0.2s all ease-in;
+}
 .skill-card:hover .skill-image {
   transform: translateY(-5px);
   transition: 0.2s all ease-in;
