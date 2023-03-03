@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import "./Testimonial.scss";
 
-const Testimonial = () => {
+const Testimonial: FC = () => {
   return <>Testimonial</>;
 };
 

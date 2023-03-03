@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import "./Footer.scss";
 
-const Footer = () => {
+const Footer: FC = () => {
   return <>Footer</>;
 };
 

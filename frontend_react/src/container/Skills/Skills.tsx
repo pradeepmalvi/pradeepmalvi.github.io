@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import "./Skills.scss";
 
-const Skills = () => {
+const Skills: FC = () => {
   return <>Skills</>;
 };
 

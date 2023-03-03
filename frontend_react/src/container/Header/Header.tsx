@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import "./Header.scss";
 
-const Header = () => {
+const Header: FC = () => {
   return <>Header</>;
 };
 
