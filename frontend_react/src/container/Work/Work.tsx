@@ -30,7 +30,7 @@ const Work: FC = () => {
   });
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
+    const query = '*[_type == "works"]|order(orderRank)';
 
     client.fetch(query).then((data) => {
       setWorks(data);
