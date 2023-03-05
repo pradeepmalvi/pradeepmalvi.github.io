@@ -12,7 +12,7 @@ const App: FC = () => {
       <About />
       <Work />
       <Skills />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Footer />
     </div>
   );
