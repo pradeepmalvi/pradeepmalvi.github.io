@@ -15,6 +15,7 @@ interface SkillsState {
 interface WorkState {
   name: string;
   company: string;
+  imgUrl: object;
   desc: Array<any>;
 }
 
@@ -22,10 +23,13 @@ interface ExperienceState {
   name: string;
   works: Array<WorkState>;
   year: number;
+  _updatedAt: string;
 }
 
+let experienceList: ExperienceState[] = [];
+
 const Skills: FC = () => {
-  const [experiences, setExperiences] = useState([]);
+  const [experiences, setExperiences] = useState(experienceList);
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
@@ -65,33 +69,49 @@ const Skills: FC = () => {
           ))}
         </motion.div>
         <div className="app__skills-exp">
-          {experiences.map((experience: ExperienceState) => (
-            <motion.div className="app__skills-exp-item" key={experience.year}>
-              <motion.div className="app__skills-exp-works">
-                {experience.works.map((work: WorkState) => (
-                  <>
-                    <div className="app__skills-exp-company">
-                      <h4 className="work-name">
-                        {work.name}
-                        <span className="p-text normal-text">
-                          {experience.year}
-                        </span>
-                      </h4>
-                      <h4 className="work-company">{work.company}</h4>
+          {experiences
+            .sort(
+              (a, b) =>
+                new Date(b._updatedAt).getTime() -
+                new Date(a._updatedAt).getTime()
+            )
+            .map((experience: ExperienceState) => (
+              <motion.div
+                className="app__skills-exp-item"
+                key={experience.year}
+              >
+                <motion.div className="app__skills-exp-works">
+                  {experience.works.map((work: WorkState) => (
+                    <>
+                      <div className="app__skills-exp-company">
+                        <h4 className="work-name">
+                          {work.name}
+                          <span className="p-text normal-text">
+                            {experience.year}
+                          </span>
+                        </h4>
+                        <h4 className="work-company">
+                          <img
+                            src={urlFor(work.imgUrl).url()}
+                            alt={work.company}
+                          />
 
-                      <>
-                        {work.desc.map((dec) => (
-                          <p className="work-desc p-text">
-                            {dec?.children[0].text}
-                          </p>
-                        ))}
-                      </>
-                    </div>
-                  </>
-                ))}
+                          {work.company}
+                        </h4>
+
+                        <>
+                          {work.desc.map((dec) => (
+                            <p className="work-desc p-text">
+                              {dec?.children[0].text}
+                            </p>
+                          ))}
+                        </>
+                      </div>
+                    </>
+                  ))}
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
+            ))}
         </div>
       </div>
     </>

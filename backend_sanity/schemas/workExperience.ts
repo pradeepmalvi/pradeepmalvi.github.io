@@ -5,6 +5,14 @@ export default {
   fields: [
     {name: 'name', title: 'Role', type: 'string'},
     {
+      name: 'imgUrl',
+      title: 'ImageUrl',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: 'company',
       title: 'Company',
       type: 'string',
