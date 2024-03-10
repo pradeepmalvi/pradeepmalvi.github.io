@@ -10,6 +10,7 @@ interface SkillsState {
   name: string;
   bgColor: string;
   icon: object;
+  _updatedAt: string;
 }
 
 interface WorkState {
@@ -27,10 +28,11 @@ interface ExperienceState {
 }
 
 let experienceList: ExperienceState[] = [];
+let skillsList: SkillsState[] = [];
 
 const Skills: FC = () => {
   const [experiences, setExperiences] = useState(experienceList);
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState(skillsList);
 
   useEffect(() => {
     const query = '*[_type == "experiences"]';
@@ -51,7 +53,11 @@ const Skills: FC = () => {
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills.map((skill: SkillsState) => (
+          {skills.sort(
+            (a, b) =>
+              new Date(b._updatedAt).getTime() -
+              new Date(a._updatedAt).getTime()
+          ).map((skill: SkillsState) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
